@@ -22,7 +22,16 @@ public class Controller implements KeyListener {
   @Override
   public void keyReleased(KeyEvent e) {
     if (e.getKeyCode() == KeyEvent.VK_UP) {
-      // Do something
+      gameBoard.heroMoveUp();
+    }
+    else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+      gameBoard.heroMoveDown();
+    }
+    else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+      gameBoard.heroMoveLeft();
+    }
+    else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+      gameBoard.heroMoveRight();
     }
 
     gameBoard.repaint();

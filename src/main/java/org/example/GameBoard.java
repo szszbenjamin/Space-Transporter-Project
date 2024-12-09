@@ -72,11 +72,29 @@ public class GameBoard extends JComponent {
             drawImage(graphics, "Box-C.png", boxes[i].x, boxes[i].y);
         }
 
-        drawImage(graphics, "Hero-Front.png", hero.x, hero.y);
+        drawImage(graphics, hero.directionImage, hero.x, hero.y);
     }
 
     private void drawImage(Graphics graphics, String fileName, int positionX, int positionY) {
         ImageContainer image = new ImageContainer(imageDirectoryName + "/" + fileName, positionX * blockSize, positionY * blockSize);
         image.draw(graphics);
+    }
+
+    //Movement of the astronaut
+    public void heroMoveUp() {
+        hero.y -= 1;
+        hero.directionImage = "Hero-Back.png";
+    }
+    public void heroMoveDown() {
+        hero.y += 1;
+        hero.directionImage = "Hero-Front.png";
+    }
+    public void heroMoveLeft() {
+        hero.x -= 1;
+        hero.directionImage = "Hero-Left.png";
+    }
+    public void heroMoveRight() {
+        hero.x += 1;
+        hero.directionImage = "Hero-Right.png";
     }
 }
